@@ -393,12 +393,12 @@ function CHROOT_FILE ()
     elif [ "${VAR[BootLoader]}" == "systemd-boot" ];
     then
         echo "bootctl --path=/boot/efi install"  >> arch_chroot.sh
-        echo "echo \"timeout 5\" > /boot/loader/loader.conf"  >> arch_chroot.sh
-        echo "echo \"default arch-*\" >> /boot/loader/loader.conf"  >> arch_chroot.sh
-        echo "echo \"title      Arch Linux\" > /boot/loader/entries/arch.conf"  >> arch_chroot.sh
-        echo "echo \"linux      /vmlinuz-linux\" >> /boot/loader/entries/arch.conf"  >> arch_chroot.sh
-        echo "echo \"initrd     /initramfs-linux.img\" >> /boot/loader/entries/arch.conf"  >> arch_chroot.sh
-        echo "echo \"options    root=${VAR[root_part]} rw\" >> /boot/loader/entries/arch.conf"  >> arch_chroot.sh
+        echo "echo \"timeout 5\" > /boot/efi/loader/loader.conf"  >> arch_chroot.sh
+        echo "echo \"default arch-*\" >> /boot/efi/loader/loader.conf"  >> arch_chroot.sh
+        echo "echo \"title      Arch Linux\" > /boot/efi/loader/entries/arch.conf"  >> arch_chroot.sh
+        echo "echo \"linux      /vmlinuz-linux\" >> /boot/efi/loader/entries/arch.conf"  >> arch_chroot.sh
+        echo "echo \"initrd     /initramfs-linux.img\" >> /boot/efi/loader/entries/arch.conf"  >> arch_chroot.sh
+        echo "echo \"options    root=${VAR[root_part]} rw\" >> /boot/efi/loader/entries/arch.conf"  >> arch_chroot.sh
     fi
     mv arch_chroot.sh /mnt/
     chmod +x /mnt/arch_chroot.sh
